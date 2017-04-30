@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# IDE
+.idea
+
+# Work in progress
+tmp/
+security/
+dev/
+other/
+
+## dnsbruteforce
+dnssurgery/subdomains-100.txt
+dnssurgery/subdomains-500.txt
+dnssurgery/subdomains-1000.txt
+dnssurgery/subdomains-10000.txt
+
+## smbsurgery
+smbsurgery/*-smb-*-vuln.txt
