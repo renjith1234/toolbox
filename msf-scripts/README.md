@@ -2,11 +2,10 @@ Collection of Meterpreter scripts
 =================================
 
 - What to do
-<pre>
- + Create your meterpreter script (ruby)
- + Use autocomplete.sh to add / delete your scripts in the meterpreter scripts' folder
- + Enjoy
-</pre>
+
+\+ Create your meterpreter script (ruby)</br>
+\+ Use autocomplete.sh to add / delete your scripts in the meterpreter scripts' folder</br>
+\+ Enjoy</br>
 
 - Usage
 <pre>
@@ -15,4 +14,4 @@ Usage: autocomplete.sh [option]
 Options:
       -a, --add       add all custom scripts
       -d, --delete    delete all custom scripts
-</pre>
+<pre>

@@ -1,6 +1,6 @@
 # dnsbruteforce
 ### generate-subdomains-lists
-You can use this script to generate few list with basic subdomain names.
+You can use this script to generate few list with basic subdomain names.</br>
 Lists based on the rbsec/dnscan project.
 
 ```sh
@@ -21,11 +21,11 @@ drwxr-xr-x 5 root root  4096 Feb 26 00:34 ..
 -rw-r--r-- 1 root root  2883 Feb 26 00:20 subdomains-500.txt
 ```
 ### dns-bruteforce
-You need to pass two arguments"
-ARG 1: the domain name"
-ARG 2: the path of the list"
-Example: ./dns-bruteforce.sh megacorpone.com /root/Desktop/list.txt"
-Example: ./dns-bruteforce.sh megacorpone.com subdomains-100.txt"
+You need to pass two arguments"</br>
+ARG 1: the domain name"</br>
+ARG 2: the path of the list"</br>
+Example: ./dns-bruteforce.sh megacorpone.com /root/Desktop/list.txt"</br>
+Example: ./dns-bruteforce.sh megacorpone.com subdomains-100.txt"</br>
 
 ```sh
 $ chmod +x dns-bruteforce.sh
