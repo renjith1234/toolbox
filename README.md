@@ -1,21 +1,18 @@
 Woot it is ʕ•ᴥ•ʔ
 ================
-This is a compilation of all my scripts written during my learning path.
-
+This is a compilation of all my scripts written during my learning path.</br>
 To learn cyber sec, or just for fun.
 
 
 Thanks 
 ======
-Special thank to THS community, especially R4v3n, GalaxyNinja, ch3rn0byl , Gingerbread Man for the awesome stuff on the forum.
-
+Special thank to THS community, especially R4v3n, GalaxyNinja, ch3rn0byl , Gingerbread Man for the awesome stuff on the forum.</br>
 And the good time with you girls and boys.
 
 
 Links
 =====
-THS: http://forum.top-hat-sec.com/index.php
-
+THS: http://forum.top-hat-sec.com/index.php</br>
 Twitter: https://twitter.com/_amonsecTHS
 
 

@@ -3,10 +3,10 @@ Collection of Perl webshell
 
 - CGI remote command execution
 
-\- bash-reverse-shell.cgi
-\- nc-reverse-shell.cgi
-\- perl-reverse-shell.cgi
-\- python-reverse-shell.cgi
+\- bash-reverse-shell.cgi</br>
+\- nc-reverse-shell.cgi</br>
+\- perl-reverse-shell.cgi</br>
+\- python-reverse-shell.cgi</br>
 
 - Perl webshell
 
