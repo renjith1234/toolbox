@@ -1,23 +1,23 @@
 Woot it is ʕ•ᴥ•ʔ
 ================
-<pre>
 This is a compilation of all my scripts written during my learning path.
+
 To learn cyber sec, or just for fun.
-</pre>
+
 
 Thanks 
 ======
-<pre>
 Special thank to THS community, especially R4v3n, GalaxyNinja, ch3rn0byl , Gingerbread Man for the awesome stuff on the forum.
-And the good time with you girls and boys.
-</pre>
 
-Link
-====
-<pre>
+And the good time with you girls and boys.
+
+
+Links
+=====
 THS: http://forum.top-hat-sec.com/index.php
+
 Twitter: https://twitter.com/_amonsecTHS
-</pre>
+
 
 Architecture
 ============
@@ -93,5 +93,16 @@ Architecture
  |  |___nmap-shellshock.sh
  |  |___subdomainsList.sh
  |
+ |___webshell
+ |  |  
+ |  |___perl
+ |  |   |___bash-reverse-shell.cgi
+ |  |   |___nc-reverse-shell.cgi
+ |  |   |___perl-reverse-shell.cgi
+ |  |   |___perl-reverse-shell.pl
+ |  |   |___python-reverse-shell.cgi
+ |  |   |___README.md
+ |  |
+ |-/
 -/
 </pre>
