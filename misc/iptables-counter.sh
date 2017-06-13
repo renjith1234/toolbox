@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ -z "$1" ] && [ -z "$$2" ]; then
+if [ -z "$1" ] || [ -z "$2" ]; then
   echo "[+] Simple iptable counter"
-  echo "[+] Usage: $0 <input ip> <output ip>"
+  echo "[+] Usage: $0 <source ip> <destination ip>"
   exit 0
 fi
 
