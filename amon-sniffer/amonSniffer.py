@@ -50,13 +50,15 @@ def ethernet_layer_analyze(sniffed):
                     % (mac_source[0:2], mac_source[2:4], mac_source[4:6],
                        mac_source[6:8], mac_source[8:10], mac_source[10:12])
         returned += "%s " % mac_protocol
-        if hex(mac_protocol) == "0x800": ip = "1"
-        else: ip = "0"
+        if hex(mac_protocol) == "0x800":
+            ip = "1"
+        else:
+            ip = "0"
 
         return sniffed, ip, returned
 
     except struct.error as error_msg:
-        print "Program dump Error:\n %s" % error_msg
+        print("Program dump Error:\n %s" % error_msg)
         exit_message()
     except KeyboardInterrupt:
         exit_message()
@@ -72,33 +74,33 @@ def network_layer_analyze(sniffed):
         network_header = struct.unpack('!6H4s4s', sniffed[:20])
         network_version = network_header[0] >> 12
         network_ihl = (network_header[0] >> 8) & 0x0f
-        network_typeOfService = network_header[0] & 0x00ff
-        network_totalLength = network_header[1]
+        network_type_of_service = network_header[0] & 0x00ff
+        network_total_length = network_header[1]
 
         network_identification = network_header[2]
         network_flags = network_header[3] >> 13
         network_offset = network_header[3] & 0x1fff
 
-        network_timeToLive = network_header[4] >> 8
+        network_time_to_live = network_header[4] >> 8
         network_protocol = network_header[4] & 0x00ff
-        network_headerChecksum = network_header[5]
+        network_header_checksum = network_header[5]
 
-        network_sourceAddress = socket.inet_ntoa(network_header[6])
-        network_destinationAddress = socket.inet_ntoa(network_header[7])
+        network_source_address = socket.inet_ntoa(network_header[6])
+        network_destination_address = socket.inet_ntoa(network_header[7])
 
         sniffed = sniffed[20:]
-        returned = "%s    %s" % (network_sourceAddress, network_destinationAddress)
+        returned = "%s    %s" % (network_source_address, network_destination_address)
         # 6  -> TCP
         # 17 -> UDP
         if network_protocol == 6:
-            whoisnext = "TCP"
-            return sniffed, whoisnext, (returned + "\t %s\t%s" % (whoisnext, network_totalLength))
+            whois_next = "TCP"
+            return sniffed, whois_next, (returned + "\t %s\t%s" % (whois_next, network_total_length))
         elif network_protocol == 17:
-            whoisnext = "UDP"
-            return sniffed, whoisnext, (returned + "\t %s\t%s" % (whoisnext, network_totalLength))
+            whois_next = "UDP"
+            return sniffed, whois_next, (returned + "\t %s\t%s" % (whois_next, network_total_length))
 
     except struct.error as error_msg:
-        print "Program dump Error:\n %s" % error_msg
+        print("Program dump Error:\n %s" % error_msg)
         exit_message()
     except KeyboardInterrupt:
         exit_message()
@@ -133,12 +135,18 @@ def tcp_analyze(sniffed):
         tcp_urgentPointer = tcp_header[7]
 
         flags_to_display = ""
-        if urg == True: flags_to_display += " URG "
-        if ack == True: flags_to_display += " ACK "
-        if psh == True: flags_to_display += " PSH "
-        if rst == True: flags_to_display += " RST "
-        if syn == True: flags_to_display += " SYN "
-        if fin == True: flags_to_display += " FIN "
+        if urg:
+            flags_to_display += " URG "
+        if ack:
+            flags_to_display += " ACK "
+        if psh:
+            flags_to_display += " PSH "
+        if rst:
+            flags_to_display += " RST "
+        if syn:
+            flags_to_display += " SYN "
+        if fin:
+            flags_to_display += " FIN "
 
         returned = "\t%s->%s [%s] Seq=%s  Ack=%s  Win=%s " \
                    % (tcp_source_port, tcp_destination_port, flags_to_display, tcp_sequence_number,
@@ -147,7 +155,7 @@ def tcp_analyze(sniffed):
         return returned
 
     except struct.error as error_msg:
-        print "Program dump Error:\n %s" % error_msg
+        print("Program dump Error:\n %s" % error_msg)
         exit_message()
     except KeyboardInterrupt:
         exit_message()
@@ -173,7 +181,7 @@ def udp_analyze(sniffed):
         return returned
 
     except struct.error as error_msg:
-        print "Program dump Error:\n %s" % error_msg
+        print("Program dump Error:\n %s" % error_msg)
         exit_message()
     except KeyboardInterrupt:
         exit_message()
@@ -183,7 +191,7 @@ def report(header_1, header_2, count):
     # Finally return the report (╯°□°)╯︵ ┻━┻
     try:
         final = str(header_1) + str(header_2)
-        print "[\x1B[31m%d\x1B[37m] %s" % (count, final)
+        print("[\x1B[31m%d\x1B[37m] %s" % (count, final))
         return
 
     except KeyboardInterrupt:
@@ -191,21 +199,23 @@ def report(header_1, header_2, count):
 
 
 def exit_message():
-    print "\n\nScan stop at: %s" % time.strftime("%m-%d-%Y %H:%M:%S")
-    print "Bye 1337.\n"
+    print("\n\nScan stop at: %s" % time.strftime("%m-%d-%Y %H:%M:%S"))
+    print("Bye 1337.\n")
 
 
 def main():
     try:
         os.system('clear')
-        print __banner__
-        print "Scan start at: %s\n" % time.strftime("%m-%d-%Y %H:%M:%S")
+        print(__banner__)
+        print("Scan start at: %s\n" % time.strftime("%m-%d-%Y %H:%M:%S"))
         count = 0
         while True:
             time.sleep(0.01)
-            s = socket.socket(socket.PF_PACKET,
-                              socket.SOCK_RAW,
-                              socket.htons(0x0003))
+            s = socket.socket(
+                socket.AF_INET,
+                socket.SOCK_RAW,
+                socket.htons(0x0003)
+            )
 
             sniffed = s.recv(2048)
             count = count+1
